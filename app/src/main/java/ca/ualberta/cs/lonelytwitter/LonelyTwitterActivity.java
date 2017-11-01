@@ -1,15 +1,17 @@
 package ca.ualberta.cs.lonelytwitter;
 
+//  removed View class from imports
 import java.util.Date;
 import java.util.List;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import ca.ualberta.cs.lonelytweet.NormalLonelyTweet;
 
 public class LonelyTwitterActivity extends Activity {
 
@@ -40,7 +42,8 @@ public class LonelyTwitterActivity extends Activity {
 		oldTweetsList.setAdapter(adapter);
 	}
 
-	public void save(View v) {
+	// removed View v parameter (Declaration redundancy)
+	public void save() {
 		String text = bodyText.getText().toString();
 
 		NormalLonelyTweet tweet;
@@ -60,7 +63,8 @@ public class LonelyTwitterActivity extends Activity {
 		}
 	}
 
-	public void clear(View v) {
+	//  removed View v parameter (Declaration redundancy)
+	public void clear() {
 		tweets.clear();
 		adapter.notifyDataSetChanged();
 		tweetsProvider.saveTweets(tweets);
